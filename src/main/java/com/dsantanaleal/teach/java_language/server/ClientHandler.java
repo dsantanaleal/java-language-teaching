@@ -8,10 +8,18 @@ public class ClientHandler implements Runnable {
     private String nombre;
     private Socket client;
     private ObjectOutputStream out;
-    private BufferedReader in;
+    private ObjectInputStream in;
 
     public ClientHandler(Socket client) {
         this.client = client;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
@@ -19,23 +27,14 @@ public class ClientHandler implements Runnable {
         try {
             System.out.println("Started!!!");
             out = new ObjectOutputStream(client.getOutputStream());
-            in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            in = new ObjectInputStream(client.getInputStream());
+            nombre = (String)in.readObject();
             out.writeObject("BIENVENIDO A UNA NUEVA SESION DE JAVA");
             in.close();
             out.close();
             client.close();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public void registrarCliente() throws IOException {
-        String id;
-        do {
-            out.writeObject("Por favor ingresa tu nombre: ");
-            id = in.readLine();
-            System.out.println(id);
-        } while(id == null);
-        nombre = id;
     }
 }
