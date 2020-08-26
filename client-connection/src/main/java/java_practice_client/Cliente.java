@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-class Cliente {
+final class Cliente {
 
     private static Cliente cliente = new Cliente();
     private Socket clienteSocket;
@@ -49,7 +49,7 @@ class Cliente {
             String host = io.nextLine();
             System.out.print("scotiaID: ");
             String name = io.nextLine();
-
+            io.close();
             String ip = host.split(":")[0];
             int port = Integer.parseInt(host.split(":")[1]);
             Cliente client = Cliente.open(ip, port, name);
