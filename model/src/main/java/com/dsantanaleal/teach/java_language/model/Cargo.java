@@ -4,35 +4,35 @@ import java.io.Serializable;
 
 public class Cargo implements Serializable {
 
-    private Long id;
-    private String nombre;
+    private Long idCargo;
+    private String nomCargo;
 
-    public Cargo(Long id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
+    public Cargo(Long idCargo, String nomCargo) {
+        this.idCargo = idCargo;
+        this.nomCargo = nomCargo;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdCargo() {
+        return idCargo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCargo(Long idCargo) {
+        this.idCargo = idCargo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNomCargo() {
+        return nomCargo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNomCargo(String nomCargo) {
+        this.nomCargo = nomCargo;
     }
 
     @Override
     public String toString() {
         return "Cargo{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                "idCargo=" + idCargo +
+                ", nomCargo='" + nomCargo + '\'' +
                 '}';
     }
 }

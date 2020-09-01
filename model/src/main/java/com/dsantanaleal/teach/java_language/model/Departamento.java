@@ -3,30 +3,31 @@ package com.dsantanaleal.teach.java_language.model;
 import java.io.Serializable;
 
 public class Departamento implements Serializable {
-    private Long id;
-    private String nombre;
 
-    public Long getId() {
-        return id;
+    private Long idDepartamento;
+    private String nomDepartamento;
+
+    public Long getIdDepartamento() {
+        return idDepartamento;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdDepartamento(Long idDepartamento) {
+        this.idDepartamento = idDepartamento;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNomDepartamento() {
+        return nomDepartamento;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNomDepartamento(String nomDepartamento) {
+        this.nomDepartamento = nomDepartamento;
     }
 
     @Override
     public String toString() {
         return "Departamento{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                "idDepartamento=" + idDepartamento +
+                ", nomDepartamento='" + nomDepartamento + '\'' +
                 '}';
     }
 }
