@@ -16,7 +16,7 @@ public class Model {
 
     private Faker faker = new Faker();
     private FakeValuesService service = new FakeValuesService(new Locale("es-ES"), new RandomService());
-    Collection<Empleado> empleados = new ArrayList<>(100);
+    public Collection<Empleado> empleados = new ArrayList<>(100);
 
     public void addFakeValues() {
         for(int i = 0; i < 100; i++) {
@@ -37,6 +37,16 @@ public class Model {
         }
     }
 
+    public static Collection<?> abrirArchivoBase(String archivo) {
+        try (FileInputStream fis = new FileInputStream(archivo);
+            ObjectInputStream ois = new ObjectInputStream(fis)) {
+            return (Collection<Empleado>)ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static void crearArchivoBase(String nomArchivo) {
         Model fakeData = new Model();
         fakeData.addFakeValues();
@@ -44,6 +54,7 @@ public class Model {
     }
 
     public static void main(String[] args) {
-        Model.crearArchivoBase("empleados");
+        //Model.crearArchivoBase("empleados");
+        //Model.abrirArchivoBase("empleados");
     }
 }
