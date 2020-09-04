@@ -1,14 +1,15 @@
 package com.dsantanaleal.teach.java_language.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public abstract class Persona implements Serializable {
 
     private String nombre;
     private String apellido;
-    private String fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
-    public Persona(String nombre, String apellido, String fechaNacimiento) {
+    public Persona(String nombre, String apellido, LocalDate fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
@@ -30,11 +31,11 @@ public abstract class Persona implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
